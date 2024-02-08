@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 @Data
 @Entity
@@ -18,13 +19,23 @@ public class Company {
     private String cnpj;
     @Column(nullable = false)
     private String type;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String invoices;
     @ManyToOne
     @PrimaryKeyJoinColumn(name = "asset_id")
-    private Asset assetModel;
+    @Nullable
+    private Asset assets;
     @ManyToOne
     @PrimaryKeyJoinColumn(name = "liability_id")
-    private Liabilities liabilities;
+    @Nullable
+    private Liability liabilities;
+
+    public Company(Long id, String name, String cnpj, String type, String invoices) {
+        this.id = id;
+        this.name = name;
+        this.cnpj = cnpj;
+        this.type = type;
+        this.invoices = invoices;
+    }
 }
 
