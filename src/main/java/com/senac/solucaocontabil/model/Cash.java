@@ -19,7 +19,7 @@ public class Cash {
     @PrimaryKeyJoinColumn(name = "company_id")
     private Company companyId;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "transaction_id")
+    @JoinColumn(name = "transaction_id", nullable = false)
     private List<Transaction> transactions;
 
 

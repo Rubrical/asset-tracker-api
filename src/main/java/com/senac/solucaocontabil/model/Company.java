@@ -14,8 +14,11 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(nullable = false)
     private String cnpj;
+    @Column(nullable = false)
     private String type;
+    @Column(nullable = false)
     private String invoices;
     @ManyToOne
     @PrimaryKeyJoinColumn(name = "asset_id")
