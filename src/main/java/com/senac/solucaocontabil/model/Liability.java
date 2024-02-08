@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Liabilities {
+public class Liability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
