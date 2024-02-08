@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  db:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - senac:/var/lib/mysql
+
+#  app:
+#    build: .
+#    depends_on:
+#      - db
+#    ports:
+#      - "8080:8080"
+#    volumes:
+#      - ./target:/app
+
+volumes:
+  senac:
