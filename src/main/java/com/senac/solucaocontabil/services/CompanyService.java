@@ -14,22 +14,22 @@ public class CompanyService {
 
     @Autowired
     private CompanyRepository companyRepository;
-    public List<Company> listAll(){
+    public List<Company> listAll() {
         return companyRepository.findAll();
     }
 
-    public Company findById(long id){
+    public Company findById(long id) {
         return companyRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Empresa não encontrada")
         );
     }
 
-    public Company save(Company company){
+    public Company save(Company company) {
         return companyRepository.save(company);
     }
 
 
-    public Company update(Long id, Company updatedCompany){
+    public Company update(Long id, Company updatedCompany) {
         Company company = findById(id);
 
         company.setName(updatedCompany.getName());
