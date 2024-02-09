@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "transaction", schema = "api")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

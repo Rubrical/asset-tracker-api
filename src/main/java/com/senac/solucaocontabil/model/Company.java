@@ -40,6 +40,10 @@ public class Company {
     @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = false)
     private List<Liability> liabilities = new ArrayList<>();
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cash_id")
+    private Cash cash;
+
     public Company(String name, String cnpj, String type, String invoices) {
         this.name = name;
         this.cnpj = cnpj;

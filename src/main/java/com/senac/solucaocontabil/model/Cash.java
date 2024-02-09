@@ -5,27 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "cache", schema = "api")
 public class Cash {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "balance")
-    private Double balance;
+    @Column(name = "balance", nullable = false)
+    private String balance;
 
-    @OneToOne
-    @PrimaryKeyJoinColumn(name = "company_id")
-    private Company companyId;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "transaction_id", nullable = false)
-    private List<Transaction> transactions;
-
-
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = false)
+//    private Company company;
 }
