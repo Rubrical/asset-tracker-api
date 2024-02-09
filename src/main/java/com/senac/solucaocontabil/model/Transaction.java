@@ -13,9 +13,10 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "product", nullable = false)
     private String product;
+
     @Column(nullable = false)
     private Float value;
-    @Column(name = "cash_id", nullable = false)
-    private Long cashId;
 }
