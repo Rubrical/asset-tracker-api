@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,5 +24,18 @@ public class Company {
     private String type;
     @Column(nullable = true)
     private String invoices;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<Asset> assets = new ArrayList<>();
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<Liability> liabilities = new ArrayList<>();
+
+    public Company(String name, String cnpj, String type, String invoices) {
+        this.name = name;
+        this.cnpj = cnpj;
+        this.type = type;
+        this.invoices = invoices;
+    }
 }
 
