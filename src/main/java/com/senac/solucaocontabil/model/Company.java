@@ -22,19 +22,5 @@ public class Company {
     private String type;
     @Column(nullable = true)
     private String invoices;
-    @OneToOne(mappedBy = "company", cascade = CascadeType.ALL)
-    @Nullable
-    private Asset assets;
-    @OneToOne(mappedBy = "company", cascade = CascadeType.ALL)
-    @Nullable
-    private Liability liabilities;
-
-    public Company(Long id, String name, String cnpj, String type, String invoices) {
-        this.id = id;
-        this.name = name;
-        this.cnpj = cnpj;
-        this.type = type;
-        this.invoices = invoices;
-    }
 }
 

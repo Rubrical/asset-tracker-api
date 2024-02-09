@@ -36,8 +36,6 @@ public class CompanyService {
         company.setCnpj(updatedCompany.getCnpj());
         company.setType(updatedCompany.getType());
         company.setInvoices(updatedCompany.getInvoices());
-        company.setAssets(updatedCompany.getAssets());
-        company.setLiabilities(updatedCompany.getLiabilities());
 
         return companyRepository.save(company);
 
