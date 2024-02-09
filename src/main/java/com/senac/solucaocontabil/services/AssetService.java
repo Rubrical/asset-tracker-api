@@ -6,12 +6,19 @@ import com.senac.solucaocontabil.repository.AssetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AssetService {
     @Autowired
     private AssetRepository assetRepository;
 
-    public Asset save(Company company, Asset asset){
+    public List<Asset> findAll(){
+        List<Asset> assetList = assetRepository.findAll();
+        return assetList;
+    }
+
+    public Asset save(Asset asset){
         return assetRepository.save(asset);
     }
 }

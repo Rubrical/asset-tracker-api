@@ -1,5 +1,6 @@
 package com.senac.solucaocontabil.services;
 
+import com.senac.solucaocontabil.model.Cash;
 import com.senac.solucaocontabil.model.Company;
 import com.senac.solucaocontabil.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,10 @@ public class CompanyService {
         return save;
 
     }
+
+//    public Cash saveCash(){
+//
+//    }
 
 
 //    public Company update(Long id, Company updatedCompany) {
