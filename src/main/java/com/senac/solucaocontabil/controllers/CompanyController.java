@@ -20,6 +20,11 @@ public class CompanyController {
         return listedAll;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Company> findById(@PathVariable Long id){
+        return ResponseEntity.ok(companyService.findById(id));
+    }
+
     @PostMapping
     public ResponseEntity<Company> save(@RequestBody Company company){
         Company saved = companyService.save(company);

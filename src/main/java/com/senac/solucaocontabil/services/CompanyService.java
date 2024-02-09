@@ -1,13 +1,12 @@
 package com.senac.solucaocontabil.services;
 
-import com.senac.solucaocontabil.model.Asset;
 import com.senac.solucaocontabil.model.Company;
-import com.senac.solucaocontabil.model.Liability;
 import com.senac.solucaocontabil.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,6 +16,12 @@ public class CompanyService {
     private CompanyRepository companyRepository;
     public List<Company> listAll(){
         return companyRepository.findAll();
+    }
+
+    public Company findById(long id){
+        return companyRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Empresa não encontrada")
+        );
     }
 
     public Company save(Company company){
