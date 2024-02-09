@@ -32,11 +32,11 @@ public class Company {
     @Column(name = "invoices")
     private String invoices;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = false)
     private List<Asset> assets = new ArrayList<>();
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = false)
     private List<Liability> liabilities = new ArrayList<>();
 

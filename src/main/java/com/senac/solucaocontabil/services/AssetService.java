@@ -12,7 +12,6 @@ public class AssetService {
     private AssetRepository assetRepository;
 
     public Asset save(Company company, Asset asset){
-        asset.setCompany(company);
         return assetRepository.save(asset);
     }
 }
