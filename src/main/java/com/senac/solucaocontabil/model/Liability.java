@@ -9,15 +9,17 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "liability", schema = "api")
 public class Liability {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    @Column(nullable = false)
+
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(nullable = false)
-    private double value;
-    @ManyToOne
-    @JoinColumn(name = "company_id")
-    private Company company;
+
+    @Column(name = "value", nullable = false)
+    private Double value;
 }

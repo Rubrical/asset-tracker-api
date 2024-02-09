@@ -25,19 +25,23 @@ public class CompanyService {
     }
 
     public Company save(Company company) {
-        return companyRepository.save(company);
-    }
 
+        Company save = companyRepository.save(company);
 
-    public Company update(Long id, Company updatedCompany) {
-        Company company = findById(id);
-
-        company.setName(updatedCompany.getName());
-        company.setCnpj(updatedCompany.getCnpj());
-        company.setType(updatedCompany.getType());
-        company.setInvoices(updatedCompany.getInvoices());
-
-        return companyRepository.save(company);
+        return save;
 
     }
+
+
+//    public Company update(Long id, Company updatedCompany) {
+//        Company company = findById(id);
+//
+//        company.setName(updatedCompany.getName());
+//        company.setCnpj(updatedCompany.getCnpj());
+//        company.setType(updatedCompany.getType());
+//        company.setInvoices(updatedCompany.getInvoices());
+//
+//        return companyRepository.save(company);
+//
+//    }
 }

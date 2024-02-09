@@ -12,23 +12,32 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "company", schema = "api")
 public class Company {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    @Column(nullable = false)
+
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(nullable = false)
+
+    @Column(name = "cnpj", nullable = false)
     private String cnpj;
-    @Column(nullable = false)
+
+    @Column(name = "type", nullable = false)
     private String type;
-    @Column(nullable = true)
+
+    @Column(name = "invoices")
     private String invoices;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = false)
     private List<Asset> assets = new ArrayList<>();
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = false)
     private List<Liability> liabilities = new ArrayList<>();
 
     public Company(String name, String cnpj, String type, String invoices) {
