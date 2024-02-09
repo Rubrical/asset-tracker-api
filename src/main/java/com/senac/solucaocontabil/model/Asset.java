@@ -17,4 +17,7 @@ public class Asset {
     private String name;
     @Column(nullable = false)
     private double value;
+    @OneToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 }

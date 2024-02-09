@@ -14,6 +14,7 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
     @Column(nullable = false)
     private String cnpj;
@@ -21,12 +22,10 @@ public class Company {
     private String type;
     @Column(nullable = true)
     private String invoices;
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "asset_id")
+    @OneToOne(mappedBy = "company", cascade = CascadeType.ALL)
     @Nullable
     private Asset assets;
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "liability_id")
+    @OneToOne(mappedBy = "company", cascade = CascadeType.ALL)
     @Nullable
     private Liability liabilities;
 
