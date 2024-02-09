@@ -2,6 +2,7 @@ package com.senac.solucaocontabil.services;
 
 import com.senac.solucaocontabil.model.Cash;
 import com.senac.solucaocontabil.model.Company;
+import com.senac.solucaocontabil.repository.CashRepository;
 import com.senac.solucaocontabil.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,8 @@ public class CompanyService {
 
     @Autowired
     private CompanyRepository companyRepository;
+    @Autowired
+    private CashRepository cashRepository;
     public List<Company> listAll() {
         return companyRepository.findAll();
     }
@@ -33,9 +36,15 @@ public class CompanyService {
 
     }
 
-//    public Cash saveCash(){
-//
-//    }
+    public Cash saveCash(Cash cash){
+        Cash saved = cashRepository.save(cash);
+        return saved;
+    }
+
+    public Cash getCompanyCash(Cash companyId) {
+        Cash byCash = companyRepository.findByCash(companyId);
+        return byCash;
+    }
 
 
 //    public Company update(Long id, Company updatedCompany) {
