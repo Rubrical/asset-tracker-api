@@ -3,9 +3,8 @@ package com.senac.solucaocontabil.controllers;
 import com.senac.solucaocontabil.model.Company;
 import com.senac.solucaocontabil.services.CompanyService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +20,9 @@ public class CompanyController {
         return listedAll;
     }
 
+    @PostMapping
+    public ResponseEntity<Company> save(@RequestBody Company company){
+        Company saved = companyService.save(company);
+        return ResponseEntity.ok(saved);
+    }
 }
