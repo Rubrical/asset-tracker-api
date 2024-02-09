@@ -29,4 +29,17 @@ public class CompanyService {
     }
 
 
+    public Company update(Long id, Company updatedCompany){
+        Company company = findById(id);
+
+        company.setName(updatedCompany.getName());
+        company.setCnpj(updatedCompany.getCnpj());
+        company.setType(updatedCompany.getType());
+        company.setInvoices(updatedCompany.getInvoices());
+        company.setAssets(updatedCompany.getAssets());
+        company.setLiabilities(updatedCompany.getLiabilities());
+
+        return companyRepository.save(company);
+
+    }
 }
